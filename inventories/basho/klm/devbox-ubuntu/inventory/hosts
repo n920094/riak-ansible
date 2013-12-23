@@ -1,0 +1,24 @@
+[localhost]
+127.0.0.1
+
+[bashobench]
+192.168.1.170
+
+[monitor]
+192.168.1.170
+
+#riak groups
+
+[riak_cluster]
+192.168.1.112 node_type=primary
+192.168.1.113 node_type=middle
+192.168.1.114 node_type=last
+
+[riak_servers:children]
+riak_cluster
+
+[haproxy]
+192.168.1.111
+
+[s3clients:children]
+localhost

@@ -1,0 +1,10 @@
+benchmark_suite:
+  set: 2i-1hr-10workers
+  driver: basho_bench_driver_2i
+  duration: 60
+  operations: "{get_pb,5},{{put_pb,5},1},{{query_pb,5},5}"
+  concurrency: 10
+  keygen: uniform_int
+  protocol: pb
+  value_size_lb: 4098
+  value_size_ub: 50000

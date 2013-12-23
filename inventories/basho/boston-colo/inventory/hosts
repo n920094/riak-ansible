@@ -1,0 +1,31 @@
+[localhost]
+127.0.0.1
+
+[bashobench]
+10.0.24.34
+
+[monitor]
+10.0.24.34
+
+#riak groups
+
+[riak_cluster]
+10.0.24.35 node_type=primary
+10.0.24.36 node_type=middle
+10.0.24.37 node_type=middle
+10.0.24.38 node_type=middle
+10.0.24.39 node_type=last
+
+[riak_servers:children]
+riak_cluster
+
+#if you're using riakcs, you'll need these too.
+
+[haproxy]
+10.0.24.35
+
+[s3clients:children]
+localhost
+
+[all:vars]
+ansible_ssh_user=kmclaughlin

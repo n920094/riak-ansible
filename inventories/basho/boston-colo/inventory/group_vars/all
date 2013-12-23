@@ -1,0 +1,42 @@
+arby:
+  iterations: 1
+  report: true
+  sleep: 5
+  wipe: true
+benchmark:
+  iface: eth1
+  label: riak-perf-test
+  results_base_dir: "/tmp/test_results"
+bashobench:
+  test: /etc/bashobench/benchmark_riak.config
+  label: riak-perf-test
+  warmup: /etc/bashobench/benchmark_riak_populate.config
+cluster:
+  name: riak_perf_test
+collectd:
+  server:
+    iface: eth1
+firewall: true
+haproxy:
+  iface: eth1
+product: riak
+riak:
+  backend: bitcask
+  handoff_port: 8099
+  http_port: 8098
+  iface: eth1
+  log_rotate: 5
+  mountpoint: /
+  partition: /dev/mapper/ubuntu--server--1204--x64-root
+  pb_backlog: 256
+  pb_port: 8087
+  physical_disks:
+  - sda
+  ring_size: 64
+  scheduler: noop
+  version: 1.4.2
+s3:
+  report_path: basho-riak-benchmarking/results
+s3client:
+  host_base: s3.amazonaws.com
+  proxy_port: 8080

@@ -1,0 +1,9 @@
+benchmark_suite:
+  set: write-1to100kb-1hr-10workers
+  duration: 1
+  operations: "{put,1}"
+  concurrency: 10
+  keygen: uniform_int
+  protocol: pb
+  value_size_lb: 1024
+  value_size_ub: 102400

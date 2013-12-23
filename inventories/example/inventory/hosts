@@ -1,0 +1,28 @@
+[localhost]
+127.0.0.1
+
+[bashobench]
+10.42.0.100
+
+[monitor]
+10.42.0.100
+
+#riak groups
+
+[riak_cluster]
+10.42.0.6 node_type=primary
+10.42.0.7 node_type=middle
+10.42.0.8 node_type=last
+
+[riak_servers:children]
+riak_cluster
+
+[haproxy]
+10.42.0.100
+
+[s3clients:children]
+localhost
+
+[all:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
